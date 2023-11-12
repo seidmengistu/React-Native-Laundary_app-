@@ -1,10 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import {useFonts} from 'expo-font';
+import * as SplashScreen  from 'expo-splash-screen';
+import {useCallback} from 'react';
+
 
 export default function App() {
+
+  //mapping fonts for use asynchronously ,fontLoaded will return boolean
+const [fontLoaded]=useFonts({
+  regular: require('./assets/fonts/Poppins-Regular.ttf'),
+  light: require('./assets/fonts/Poppins-Light.ttf'),
+  bold: require('./assets/fonts/Poppins-Bold.ttf'),
+  medium: require('./assets/fonts/Poppins-Medium.ttf'),
+  extrabold: require('./assets/fonts/Poppins-ExtraBold.ttf'),
+  semibold: require('./assets/fonts/Poppins-SemiBold.ttf')
+})
+
+
+const onLayoutRootView=useCallback(async()=>{
+
+if(fontLoaded){
+  await SplashScreen.hideAsync();
+}
+
+},[fontLoaded]);
+
+if(!fontLoaded){
+  return null;
+}
+
   return (
     <View style={styles.container}>
-      <Text>Seid Mengistu!</Text>
+      <Text style={styles.textStyle} >Seid Mengistu!</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,4 +45,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  textStyle:{
+    fontFamily:"extrabold",
+    fontSize:20
+  }
 });
