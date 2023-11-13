@@ -7,7 +7,7 @@ import ProductCardView from './ProductCardView'
 const ProductRow = () => {
     const products=[1,2,3,4,5,6,7,8,9,10,11]
   return (
-    <View style={{marginTop:SIZES.small}}>
+    <View style={styles.container}>
         <FlatList
     data={products}
     renderItem={({item})=><ProductCardView/>}
