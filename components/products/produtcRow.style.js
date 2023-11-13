@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
-import { COLORS,SIZES } from "../constants";
+import { COLORS,SIZES } from "../../constants";
 
 
 const styles = StyleSheet.create({
     container:{
         marginTop:SIZES.small,
-        marginLeft:12
+        marginLeft:12,
+        height:350,
     }
 })
 
