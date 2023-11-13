@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         marginTop:top,
         color:color,
         marginHorizontal:12, 
+        fontSize: Platform.OS === 'ios' ? SIZES.xLarge+5 : SIZES.xLarge,
     }),
 
     searchContainer:{
