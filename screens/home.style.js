@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     appBar:{
         flexDirection:"row",
         justifyContent:"space-between",
-        alignItems:"center",       
+        alignItems:"center",  
+        marginTop: Platform.OS === 'ios' ? 0 : SIZES.xLarge,
+     
     },
     location:{
         fontFamily:"semibold",
@@ -33,7 +35,18 @@ const styles = StyleSheet.create({
         fontWeight:600,
         color:COLORS.lightWhite,
         fontSize:10,
-    }
+    },
+
+    safeArea: {
+        flex: 1,
+        backgroundColor: COLORS.background, // Adjust the background color as needed
+      },
+      scrollView: {
+        flex: 1,
+        paddingTop: SIZES.statusBarHeight, // Adjust based on your design needs
+      },
+
+
     
 
     
